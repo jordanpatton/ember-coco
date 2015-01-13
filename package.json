@@ -1,0 +1,17 @@
+{
+  "name": "ember-striker",
+  "version": "0.0.3",
+  "description": "Custom parts for Ember.js",
+  "author": "Jordan Patton <jordanpatton@gmail.com>",
+  "main": "./dist/ember-striker.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jordanpatton/ember-striker.git"
+  },
+  "keywords": [
+    "ember",
+    "striker",
+    "custom",
+    "component"
+  ]
+}
