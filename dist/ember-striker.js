@@ -97,27 +97,23 @@ var EmberStriker = function (Ember) {
     classNameBindings:     ['isActive'],
     classNames:            'edit-in-place-text-field',
     isActive:              false,
+    placeholder:           null,
+    value:                 null,
     
-    click: function (e) {
+    maxlength: function () {
+      return (this.get('value')!==null && this.get('value').length>0) ? this.get('value').length+1 : ((this.get('placeholder')!==null && this.get('placeholder').length>0) ? this.get('placeholder').length+1 : 1);
+    }.property('placeholder','value'),
+    
+    size: function () {
+      return (this.get('value')!==null && this.get('value').length>0) ? this.get('value').length+1 : ((this.get('placeholder')!==null && this.get('placeholder').length>0) ? this.get('placeholder').length+1 : 1);
+    }.property('placeholder','value'),
+    
+    focusIn: function (e) {
       this.set('isActive',true);
-      return false;
     },
     
-    didInsertElement: function () {
-      var self = this;
-      // define global event listener
-      this.set('__globalEventListener', function(e){self.set('isActive',false);return false;});
-      // bind global event listener
-      window.document.addEventListener('click', this.get('__globalEventListener'), false);
-      // run super
-      return this._super();
-    },
-    
-    willDestroyElement: function () {
-      // unbind global event listener
-      window.document.removeEventListener('click', this.get('__globalEventListener'), false);
-      // run super
-      return this._super();
+    focusOut: function (e) {
+      this.set('isActive',false);
     }
     
   });
