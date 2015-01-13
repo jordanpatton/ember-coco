@@ -1,16 +1,17 @@
-ember-custom-select
+ember-striker
 =======================
 
-Custom Select component for [Ember.js](http://emberjs.com/).
+Custom parts for [Ember.js](http://emberjs.com/).
 
 # Installation
 ```bash
 # Bower
-bower install git@github.com:jordanpatton/ember-custom-select.git --save
+bower install git@github.com:jordanpatton/ember-striker.git --save
 ```
 
 # Usage
 ```javascript
 var App = Ember.Application.create({});
-App.MySelectComponent = EmberCustomSelect.extend({ /*...*/ });
+App.MySelectComponent = EmberStriker.CustomSelectComponent.extend({ /*...*/ });
+App.MyTextFieldView = EmberStriker.EditInPlaceTextFieldView.extend({ /*...*/ });
 ```
