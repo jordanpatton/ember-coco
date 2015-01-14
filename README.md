@@ -12,6 +12,6 @@ bower install git@github.com:jordanpatton/ember-striker.git --save
 # Usage
 ```javascript
 var App = Ember.Application.create({});
-App.MySelectComponent = EmberStriker.CustomSelectComponent.extend({ /*...*/ });
-App.MyTextFieldView = EmberStriker.EditInPlaceTextFieldView.extend({ /*...*/ });
+App.MySelectComponent = EmberStriker.CustomSelect.extend({ /*...*/ });
+App.MyTextFieldComponent = EmberStriker.CustomTextField.extend({ /*...*/ });
 ```

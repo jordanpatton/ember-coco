@@ -5,8 +5,8 @@ var EmberStriker = function (Ember) {
   
   
   //---------------------------------------------------------------
-  // BEGIN: CustomSelectComponent
-  var CustomSelectComponent = Ember.Component.extend({
+  // BEGIN: CustomSelect
+  var CustomSelect = Ember.Component.extend({
     
     __globalEventListener: null,
     classNameBindings:     ['isDisabled','isExpanded'],
@@ -84,13 +84,13 @@ var EmberStriker = function (Ember) {
     }
     
   });
-  // END: CustomSelectComponent
+  // END: CustomSelect
   //---------------------------------------------------------------
   
   
   //---------------------------------------------------------------
-  // BEGIN: EditInPlaceTextFieldView
-  var EditInPlaceTextFieldView = Ember.TextField.extend({
+  // BEGIN: CustomTextField
+  var CustomTextField = Ember.TextField.extend({
     
     __globalEventListener: null,
     attributeBindings:     ['maxlength','size'],
@@ -114,17 +114,19 @@ var EmberStriker = function (Ember) {
     
     focusOut: function (e) {
       this.set('isActive',false);
+      // send default action (defined in hbs template) to controller
+      this.sendAction('action');
     }
     
   });
-  // END: EditInPlaceTextFieldView
+  // END: CustomTextField
   //---------------------------------------------------------------
   
   
   // Public properties & methods
   return {
-    'CustomSelectComponent':    CustomSelectComponent,
-    'EditInPlaceTextFieldView': EditInPlaceTextFieldView
+    'CustomSelect':    CustomSelect,
+    'CustomTextField': CustomTextField
   };
   
   
