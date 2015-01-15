@@ -101,11 +101,11 @@ var EmberStriker = function (Ember) {
     value:                 null,
     
     maxlength: function () {
-      return (this.get('value')!==null && typeof this.get('value').length!=='undefined' && this.get('value').length>0) ? this.get('value').length+1 : ((this.get('placeholder')!==null && typeof this.get('placeholder').length!=='undefined' && this.get('placeholder').length>0) ? this.get('placeholder').length+1 : 1);
+      return (typeof this.get('value')!=='undefined' && typeof this.get('value').length!=='undefined' && this.get('value').length>0) ? this.get('value').length+1 : ((typeof this.get('placeholder')!=='undefined' && typeof this.get('placeholder').length!=='undefined' && this.get('placeholder').length>0) ? this.get('placeholder').length+1 : 1);
     }.property('placeholder','value'),
     
     size: function () {
-      return (this.get('value')!==null && typeof this.get('value').length!=='undefined' && this.get('value').length>0) ? this.get('value').length+1 : ((this.get('placeholder')!==null && typeof this.get('placeholder').length!=='undefined' && this.get('placeholder').length>0) ? this.get('placeholder').length+1 : 1);
+      return (typeof this.get('value')!=='undefined' && typeof this.get('value').length!=='undefined' && this.get('value').length>0) ? this.get('value').length+1 : ((typeof this.get('placeholder')!=='undefined' && typeof this.get('placeholder').length!=='undefined' && this.get('placeholder').length>0) ? this.get('placeholder').length+1 : 1);
     }.property('placeholder','value'),
     
     focusIn: function (e) {
