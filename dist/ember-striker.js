@@ -73,6 +73,8 @@ var EmberStriker = function (Ember) {
           this.set('selection',option);
           this.set('selection.isSelected',true);
         }
+        // send bubbleAction (user-defined in hbs template) to controller
+        this.sendAction('bubbleAction');
         return false;
       },
       toggleExpanded: function () {
@@ -118,8 +120,8 @@ var EmberStriker = function (Ember) {
     
     focusOut: function (e) {
       this.set('isActive',false);
-      // send default action (defined in hbs template) to controller
-      this.sendAction('action');
+      // send bubbleAction (user-defined in hbs template) to controller
+      this.sendAction('bubbleAction');
     }
     
   });

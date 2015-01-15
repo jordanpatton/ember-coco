@@ -1,6 +1,6 @@
 {
   "name": "ember-striker",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Custom parts for Ember.js",
   "author": "Jordan Patton <jordanpatton@gmail.com>",
   "main": "./dist/ember-striker.js",
