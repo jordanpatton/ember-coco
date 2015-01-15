@@ -27,7 +27,7 @@ var EmberStriker = function (Ember) {
     }.property('options','value'),
     
     layout: Ember.Handlebars.compile(''
-      +'<ul class="options" {{action "toggleExpanded" bubbles=false}}>'
+      +'<ul class="options" {{action "toggleExpanded"}}>'
       +'  {{#if isExpanded}}'
       +'    <li class="placeholder">{{placeholder}}</li>'
       +'    {{#each option in options}}'
@@ -52,16 +52,20 @@ var EmberStriker = function (Ember) {
         Ember.set(item, 'isSelected', (item.value === self.get('value') ? true : false));
       });
       // define global event listener
-      this.set('__globalEventListener', function(e){if(self.get('isExpanded')){self.set('isExpanded',false);}return false;});
+      this.set('__globalEventListener', function(e){
+        var isChild = (function(c,p){while((c=c.parentNode)&&c!==p);return !!c;})(e.target,self.element);
+        if(!isChild && self.get('isExpanded')){self.set('isExpanded',false);}
+        return false;
+      });
       // bind global event listener
-      window.document.addEventListener('click', this.get('__globalEventListener'), false);
+      window.document.addEventListener('mouseup', this.get('__globalEventListener'), false);
       // run super
       return this._super();
     },
     
     willDestroyElement: function () {
       // unbind global event listener
-      window.document.removeEventListener('click', this.get('__globalEventListener'), false);
+      window.document.removeEventListener('mouseup', this.get('__globalEventListener'), false);
       // run super
       return this._super();
     },
@@ -73,13 +77,13 @@ var EmberStriker = function (Ember) {
           this.set('selection',option);
           this.set('selection.isSelected',true);
         }
-        // send bubbleAction (user-defined in hbs template) to controller
-        this.sendAction('bubbleAction');
         return false;
       },
       toggleExpanded: function () {
         if(!this.get('isDisabled')) {
           this.toggleProperty('isExpanded');
+          // send bubbleAction (user-defined in hbs template) to controller
+          this.sendAction('bubbleAction');
         }
         return false;
       }
