@@ -1,22 +1,22 @@
 {
-  "name": "ember-striker",
+  "name": "ember-coco",
   "version": "0.0.8",
   "authors": [
     "Jordan Patton <jordanpatton@gmail.com>"
   ],
-  "description": "Custom parts for Ember.js.",
-  "main": "dist/ember-striker.js",
+  "description": "Ember Common Components: tools for rapid prototyping with Ember.js.",
+  "main": "dist/ember-coco.js",
   "dependencies": {
     "ember": "~1.9.0"
   },
   "keywords": [
     "ember",
-    "striker",
-    "custom",
+    "coco",
+    "common",
     "component"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/jordanpatton/ember-striker",
+  "homepage": "https://github.com/jordanpatton/ember-coco",
   "ignore": [
     "**/.*",
     "node_modules",

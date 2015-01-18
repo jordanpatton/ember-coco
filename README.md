@@ -1,17 +1,17 @@
-ember-striker
+ember-coco
 =======================
 
-Custom parts for [Ember.js](http://emberjs.com/).
+**Ember** **Co**mmon **Co**mponents: tools for rapid prototyping with [Ember.js](http://emberjs.com/).
 
 # Installation
 ```bash
 # Bower
-bower install git@github.com:jordanpatton/ember-striker.git --save
+bower install git@github.com:jordanpatton/ember-coco.git --save
 ```
 
 # Usage
 ```javascript
 var App = Ember.Application.create({});
-App.MySelectComponent = EmberStriker.CustomSelect.extend({ /*...*/ });
-App.MyTextFieldComponent = EmberStriker.CustomTextField.extend({ /*...*/ });
+App.MySelectComponent = EmberCoco.CustomSelect.extend({ /*...*/ });
+App.MyTextFieldComponent = EmberCoco.CustomTextField.extend({ /*...*/ });
 ```
