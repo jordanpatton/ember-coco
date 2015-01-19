@@ -82,8 +82,8 @@ var EmberCoco = function (Ember) {
       toggleExpanded: function () {
         if(!this.get('isDisabled')) {
           this.toggleProperty('isExpanded');
-          // send bubbleAction (user-defined in hbs template) to controller
-          this.sendAction('bubbleAction');
+          // send default action (user-defined in hbs template) to controller
+          this.sendAction('action');
         }
         return false;
       }
@@ -100,9 +100,7 @@ var EmberCoco = function (Ember) {
     
     __globalEventListener: null,
     attributeBindings:     ['maxlength','size'],
-    classNameBindings:     ['isActive'],
     classNames:            'edit-in-place-text-field',
-    isActive:              false,
     placeholder:           null,
     value:                 null,
     
@@ -118,14 +116,9 @@ var EmberCoco = function (Ember) {
       return (typeof v!=='undefined' && v!==null && typeof v.length!=='undefined' && v.length>0) ? v.length+1 : ((typeof p!=='undefined' && p!==null && typeof p.length!=='undefined' && p.length>0) ? p.length+1 : 1);
     }.property('placeholder','value'),
     
-    focusIn: function (e) {
-      this.set('isActive',true);
-    },
-    
     focusOut: function (e) {
-      this.set('isActive',false);
-      // send bubbleAction (user-defined in hbs template) to controller
-      this.sendAction('bubbleAction');
+      // send default action (user-defined in hbs template) to controller
+      this.sendAction('action');
     }
     
   });
