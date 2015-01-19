@@ -98,9 +98,8 @@ var EmberCoco = function (Ember) {
   // BEGIN: CustomTextField
   var CustomTextField = Ember.TextField.extend({
     
-    __globalEventListener: null,
     attributeBindings:     ['maxlength','size'],
-    classNames:            'edit-in-place-text-field',
+    classNames:            'custom-text-field',
     placeholder:           null,
     value:                 null,
     
@@ -126,10 +125,34 @@ var EmberCoco = function (Ember) {
   //---------------------------------------------------------------
   
   
+  //---------------------------------------------------------------
+  // BEGIN: CustomDateField
+  var CustomDateField = CustomTextField.extend({
+    
+    classNames: 'custom-date-field',
+    
+    // format 'value' as a date
+    formatValue: function () {
+      if(typeof this.get('value') !== 'undefined' && this.get('value') !== null) {
+        var v = new Date(this.get('value'));
+        var f = (v.getMonth()+1) + '/' + v.getDate() + '/' + v.getFullYear().toString().substr(2,2);
+        this.set('value',f);
+      }
+    },
+    // perform date-formatting on certain events
+    formatValueOnDidInsertElement: function () {this.formatValue();}.on('didInsertElement'),
+    formatValueOnFocusOut:         function () {this.formatValue();}.on('focusOut')
+    
+  });
+  // END: CustomDateField
+  //---------------------------------------------------------------
+  
+  
   // Public properties & methods
   return {
     'CustomSelect':    CustomSelect,
-    'CustomTextField': CustomTextField
+    'CustomTextField': CustomTextField,
+    'CustomDateField': CustomDateField
   };
   
   

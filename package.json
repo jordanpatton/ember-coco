@@ -1,6 +1,6 @@
 {
   "name": "ember-coco",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Ember Common Components: tools for rapid prototyping with Ember.js.",
   "author": "Jordan Patton <jordanpatton@gmail.com>",
   "main": "./dist/ember-coco.js",

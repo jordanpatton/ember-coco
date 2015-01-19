@@ -14,4 +14,5 @@ bower install git@github.com:jordanpatton/ember-coco.git --save
 var App = Ember.Application.create({});
 App.MySelectComponent = EmberCoco.CustomSelect.extend({ /*...*/ });
 App.MyTextFieldComponent = EmberCoco.CustomTextField.extend({ /*...*/ });
+App.MyDateFieldComponent = EmberCoco.CustomDateField.extend({ /*...*/ });
 ```
