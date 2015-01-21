@@ -98,10 +98,10 @@ var EmberCoco = function (Ember) {
   // BEGIN: CustomTextField
   var CustomTextField = Ember.TextField.extend({
     
-    attributeBindings:     ['maxlength','size'],
-    classNames:            'custom-text-field',
-    placeholder:           null,
-    value:                 null,
+    attributeBindings: ['maxlength','size'],
+    classNames:        'custom-text-field',
+    placeholder:       null,
+    value:             null,
     
     maxlength: function () {
       var p = this.get('placeholder');
@@ -131,14 +131,18 @@ var EmberCoco = function (Ember) {
     
     classNames: 'custom-date-field',
     
-    // format 'value' as a date
-    formatValue: function () {
-      if(typeof this.get('value') !== 'undefined' && this.get('value') !== null) {
-        var v = new Date(this.get('value'));
-        var f = (v.getMonth()+1) + '/' + v.getDate() + '/' + v.getFullYear().toString().substr(2,2);
-        this.set('value',f);
+    // format a date
+    formatDate: function (date) {
+      if(typeof date !== 'undefined' && date !== null) {
+        var d = new Date(date);
+        return (d.getMonth()+1) + '/' + d.getDate() + '/' + d.getFullYear().toString().substr(2,2);
       }
+      return '';
     },
+    
+    // format 'value' as a date
+    formatValue: function () {this.set('value', this.formatDate(this.get('value')));},
+    
     // perform date-formatting on certain events
     formatValueOnDidInsertElement: function () {this.formatValue();}.on('didInsertElement'),
     formatValueOnFocusOut:         function () {this.formatValue();}.on('focusOut')
