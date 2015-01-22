@@ -6,7 +6,7 @@ ember-coco
 # Installation
 ```bash
 # Bower
-bower install git@github.com:jordanpatton/ember-coco.git --save
+bower install https://github.com/jordanpatton/ember-coco.git --save
 ```
 
 # Usage
